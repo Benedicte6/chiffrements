@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon app</title>
+ 
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(215, 148, 23);
+            text-align: center;
+            padding: 20px; /* Ajout de marge intérieure pour l'espacement */
+        }
+        h1,h2 {
+            color: rgb(11, 11, 11);
+            text-transform: uppercase;
+            margin-bottom: 20px; /* Ajout de marge en bas */
+        }
+        a {
+            margin: 5px; /* Ajout d'espacement entre les liens */
+        }
+    </style>
+    <title>Mon app</title>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIVERSITE CHRETIENNE BILINGUE DU CONGO</h1>
+        <h2>Liste des etudiants</h2>
+        <a class="btn btn-primary" href="/to_save_std">Next</a>  
+
+        <table class="table table-striped"> 
+            <thead class="thead-dark">  
+                <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Postnom</th>
+                    <th>Date de Naissance</th>  
+                    <th>Actions</th>  
+                </tr> 
+            </thead> 
+            <tbody> 
+                 {% for etudiant in data %}
+                <tr>
+                    <td>{{etudiant[0]}}</td>
+                    <td>{{etudiant[1]}}</td>
+                    <td>{{etudiant[2]}}</td>
+                    <td>{{etudiant[3]}}</td>
+                    <td> 
+                        <a class="btn btn-danger" href="/delete/{{etudiant[0]}}/">DELETE</a> <!-- Utilisation de classes Bootstrap pour les boutons -->
+                        <a class="btn btn-warning" href="/Ouvrir_Modifier/{{etudiant[0]}}/">UPDATE</a> <!-- Utilisation de classes Bootstrap pour les boutons -->
+                     </td>
+                </tr>   
+                 {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+
+ </body>
+</html>  
